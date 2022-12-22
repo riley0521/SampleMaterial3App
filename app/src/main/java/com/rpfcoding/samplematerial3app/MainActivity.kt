@@ -12,6 +12,7 @@ import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.rpfcoding.samplematerial3app.ui.theme.SampleMaterial3AppTheme
+import kotlin.random.Random
 
 @ExperimentalMaterial3Api
 class MainActivity : ComponentActivity() {
@@ -54,6 +55,7 @@ class MainActivity : ComponentActivity() {
                                 ImageCard(
                                     title = "Bacon ipsum",
                                     description = "Bacon ipsum dolor amet pork shankle beef andouille ball tip. Meatball corned beef swine, strip steak bacon jerky doner tongue biltong pork loin drumstick sausage hamburger burgdoggen.",
+                                    isFavorite = Random.nextBoolean(),
                                     modifier = Modifier.padding(16.dp)
                                 )
                             }

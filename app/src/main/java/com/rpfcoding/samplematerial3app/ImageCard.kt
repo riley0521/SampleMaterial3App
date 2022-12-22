@@ -3,6 +3,7 @@ package com.rpfcoding.samplematerial3app
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material3.*
@@ -20,8 +21,15 @@ import kotlin.random.Random
 fun ImageCard(
     title: String,
     description: String,
+    isFavorite: Boolean,
     modifier: Modifier = Modifier
 ) {
+
+    val favoriteIcon = if (isFavorite) {
+        Icons.Outlined.Favorite
+    } else Icons.Outlined.FavoriteBorder
+
+
     Card(
         modifier = modifier,
         colors = CardDefaults.cardColors(
@@ -58,13 +66,13 @@ fun ImageCard(
                 mainAxisSize = SizeMode.Wrap
             ) {
                 AssistChip(
-                    onClick = {  },
+                    onClick = { },
                     colors = AssistChipDefaults.assistChipColors(
                         leadingIconContentColor = MaterialTheme.colorScheme.onSurfaceVariant
                     ),
                     leadingIcon = {
                         Icon(
-                            Icons.Outlined.FavoriteBorder,
+                            favoriteIcon,
                             contentDescription = null
                         )
                     },
@@ -74,7 +82,7 @@ fun ImageCard(
                 )
 
                 AssistChip(
-                    onClick = {  },
+                    onClick = { },
                     colors = AssistChipDefaults.assistChipColors(
                         leadingIconContentColor = MaterialTheme.colorScheme.onSurfaceVariant
                     ),
